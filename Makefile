@@ -69,6 +69,11 @@ universe-test: dagger-debug # Run universe tests
 	yarn --cwd "./pkg/universe.dagger.io" install
 	DAGGER_BINARY="$(shell pwd)/cmd/dagger/dagger-debug" yarn --cwd "./pkg/universe.dagger.io" test
 
+.PHONY: experimental-universe-test
+experimental-universe-test: dagger-debug # Run experimental universe tests
+	yarn --cwd "./pkg/universe.dagger.io" install
+	DAGGER_BINARY="$(shell pwd)/cmd/dagger/dagger-debug" yarn --cwd "./pkg/universe.dagger.io" test-experimental
+
 .PHONY: doc-test
 doc-test: dagger-debug # Test docs
 	yarn --cwd "./docs/learn/tests" install
